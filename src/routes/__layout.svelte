@@ -1,45 +1,59 @@
-<script lang="ts">
-	import Header from '$lib/header/Header.svelte';
-	import '../app.css';
+<script>
+	import { page } from '$app/stores';
 </script>
 
-<Header />
+<header>
+	<a href="/"><h1 class:small={$page.url.pathname !== '/'}>SvelteKit + MDsveX Blog</h1></a>
+</header>
 
 <main>
 	<slot />
 </main>
 
 <footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+	<p>
+		Copyright &#169; <a href="https://twitter.com/mehdi_vasigh">Mehdi Vasigh</a>, {new Date().getFullYear()}
+	</p>
 </footer>
 
 <style>
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 1024px;
+	:global(:root) {
+		--spacing-unit: 4px;
+		--color-background: #e5e5e5;
+		--color-text-primary: #212121;
+		--color-text-secondary: #5a5a5a;
+	}
+
+	:global(body) {
 		margin: 0 auto;
-		box-sizing: border-box;
+		max-width: 75ch;
+		padding: calc(var(--spacing-unit) * 8);
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+			'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+
+		background-color: var(--color-background);
+		color: var(--color-text-primary);
+		line-height: 1.51;
+		font-size: 18px;
+	}
+
+	:global(a, a:visited, a:active) {
+		text-decoration: none;
+		color: var(--color-text-primary);
+		font-weight: 700;
+	}
+
+	:global(a:hover) {
+		text-decoration: underline;
+	}
+
+	.small {
+		font-size: 1.6rem;
 	}
 
 	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 40px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 40px 0;
-		}
+		margin-top: calc(var(--spacing-unit) * 8);
 	}
 </style>
