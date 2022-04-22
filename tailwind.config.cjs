@@ -10,14 +10,19 @@ const config = {
 		},
 		colors: {
 			primary: {
-				light: '#ffcccb',
-				dark: '#8b0000'
+				light: '#FFFFFF',
+				dark: '#99003E'
 			},
 			secondary: {
 				light: '#b5651d',
 				dark: '#654321'
-			}
-			//...
+			},
+			neutral: {
+				light: '#b5651d',
+				dark: '#654321'
+			},
+			light: '#FFFFFF',
+			dark: '#99003E'
 		}
 	},
 
